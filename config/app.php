@@ -159,7 +159,6 @@ return [
          */
         Barryvdh\Debugbar\ServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
-
     ],
 
     /*

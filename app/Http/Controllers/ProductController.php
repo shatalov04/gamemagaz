@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\Http\Requests;
+use Sofa\Eloquence\Eloquence;
+
 
 class ProductController extends Controller
 {
     protected $data;
-
     /**
      * Display a listing of the resource.
      *
@@ -137,5 +138,20 @@ class ProductController extends Controller
     {
         Product::destroy($id);
         return back();
+    }
+
+
+    public function search(Request $request)
+    {
+        $products = Product::search($request->search)
+            ->paginate(6);
+        //dd($product);
+        if ($products == null) {
+            return back();
+        } else {
+            $this->data['products'] = $products;
+            //$this->data['category']=$product->category();
+            return view('pages.product.search', $this->data);
+        }
     }
 }

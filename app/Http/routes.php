@@ -37,6 +37,7 @@ Route::get('articles', 'ArticleController@index')->name('articles');
 Route::get('articles/{id}', 'ArticleController@show')->name('article');
 
 Route::get('products/{id}', 'ProductController@show')->name('products.show');
+Route::post('products/search', 'ProductController@search')->name('products.search');
 
 Route::get('categories/{id}', 'CategoryController@show')->name('categories.show');
 
@@ -45,6 +46,7 @@ Route::get('cart/delete/{id}', 'CartController@delete')->name('cart.delete');
 Route::get('cart/show', 'CartController@show')->name('cart.show');
 Route::get('cart/order', 'CartController@order')->name('cart.order');
 Route::post('order/store', 'OrderController@store')->name('order.store');
+
 
 //});
 
